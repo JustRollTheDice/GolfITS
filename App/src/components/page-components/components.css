@@ -1,0 +1,31 @@
+.navbar {
+    background-color: #abc0c06c;
+    opacity: 1 !important;
+}
+
+.dropdown-toggle::after {
+    content: none !important;
+}
+
+.user-profile-image {
+    max-width: 35px;
+    max-height: 35px;
+    border-radius: 50%;
+}
+
+.navbar .dropdown-menu a {
+    font-size: 12px; /* Sesuaikan ukuran font sesuai kebutuhan */
+}
+
+.nav-link {
+    color: #505050 !important;
+}
+
+.nav-link:hover {
+    color: #000 !important;
+}
+
+footer{
+    background-color: #abc0c06c;
+    margin-top: auto;
+}

@@ -1,0 +1,43 @@
+.custom-login-form {
+    background-color: #fff; /* Warna background */
+    border: 0px solid #fff; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(3, 52, 49, 0.2);
+    padding: 20px; 
+    margin-top: 10vh;
+}
+
+.floating-object {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1); /* Set initial scale and center the object */
+    background: rgba(255, 255, 255, 1);
+    padding: 20px;
+    border: 0px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(3, 52, 49, 0.1);
+    width: 60vh;
+    height: 30vh;
+    animation: floatIn 1.1s ease-in-out; /* Adjust animation duration */
+    z-index: 1;
+  }
+  
+  @keyframes floatIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+@media (max-width: 600px) {
+    .custom-login-form {
+        border: 0px; 
+        border-radius: 0px;
+        box-shadow: 0 0 0px;
+    }
+} 
