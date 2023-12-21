@@ -5,7 +5,8 @@ import LoginPage from './components/login-page/login';
 import UserProfile from './components/user-profile-page/user-profile'
 import MemberList from './components/member-list-page/member-list';
 import StaffList from './components/staff-list-page/staff-list';
-import '../../project-app/style.css';
+import 'boxicons';
+import '../../App/style.css';
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(localStorage.getItem('isLoggedIn'));
