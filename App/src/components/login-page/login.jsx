@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap'; // Mengimpor Container dari React Bootstrap
 import { useNavigate } from 'react-router-dom';
 import { NavbarComponent } from '../page-components/all-components';
 import './login.css';
@@ -38,12 +38,11 @@ function Login() {
 
   return (
     <div className="Login">
-
       {/* Navbar */}
       <NavbarComponent isLoggedIn={isLoggedIn} userName={userName} />
       
       {/* Form */}
-      <div className="container custom-login-form">
+      <Container className="custom-login-form"> {/* Menggunakan komponen Container dari React Bootstrap */}
         <div className='text-center mb-4'>
           <h2>Login</h2>
         </div>
@@ -103,7 +102,7 @@ function Login() {
             <h2 className="my-auto mx-auto">Welcome <br></br>{userName}!</h2>
           </div>
         )}
-      </div>
+      </Container>
     </div>
   );
 }
