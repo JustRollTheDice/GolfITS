@@ -15,12 +15,12 @@
   width: 70%;
   max-width: 500px;
   padding: 40px;
-  border: 1px solid #cccccc74;
+  border: 1px solid #cccccc83;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.6); 
+  background-color: rgba(255, 255, 255, 0.7); 
   backdrop-filter: blur(4px); 
   margin: 20px auto;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 

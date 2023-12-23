@@ -8,6 +8,11 @@ import ArrowDown from '../../assets/design/arrowdown.svg';
 import BdgLogo from '../../assets/logos/collab/bdg-logo.png';
 import BriLogo from '../../assets/logos/collab/bri-logo.png';
 import KahfLogo from '../../assets/logos/collab/kahf-logo.png';
+
+import Shirt from '../../assets/images/apparel/shirt.jpg'
+import Glove from '../../assets/images/apparel/glove.jpg'
+import Cap from '../../assets/images/apparel/cap.jpg'
+
 import './home.css';
 
 function Home() {
@@ -22,7 +27,7 @@ function Home() {
   // Hero paralax
   React.useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY / 6;
+      const scrollY = window.scrollY / 5;
       const heroSection = document.querySelector('.custom-hero');
       const img = document.querySelector('.custom-hero img');
       const title = document.querySelector('.custom-hero h1');
@@ -69,16 +74,72 @@ function Home() {
               <div>
                 <h1>Golf ITS</h1>
                 <p>Explore our amazing features and content. Sign in to get started!</p>
-                <Link to="collaboration" smooth={true} duration={500}>
-                  <Button variant="primary">Explore Collaboration</Button>
+                <Link to="apparel" smooth={true} duration={500}>
+                  <Button variant="primary">Learn More</Button>
                 </Link>
               </div>
             </Col>
           </Row>
           {/* Arrow Link to Next Section */}
-          <Link to="collaboration" smooth={true} duration={700} className="arrow-link">
+          <Link to="apparel" smooth={true} duration={700} className="arrow-link">
             <img src={ArrowDown} alt="Arrow" className="arrowdown" />
           </Link>
+        </Container>
+      </div>
+
+      {/* Apparel Section */}
+      <div id="apparel" className="apparel-section">
+        <Container>
+          <Row>
+            {/* Bagian teks di sebelah kiri */}
+            <Col md={4} className='d-flex align-items-center'>
+              <div className="apparel-text">
+                <h1 className='my-0 py-0'>Golf</h1>
+                <h1 className='my-0 py-0'>Apparel.</h1>
+                <p></p>
+              </div>
+            </Col>
+            <Col md={8}>
+              <Row>
+                {/* Card 1 */}
+                <Col>
+                  <Card>
+                    <Card.Img variant="top" src={Shirt} className='card-img'/>
+                    <Card.Body>
+                      <Card.Title>GITS Shirt V1</Card.Title>
+                      <Card.Text>
+                        First Golf ITS Shirt
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+                {/* Card 2 */}
+                <Col>
+                  <Card>
+                    <Card.Img variant="top" src={Glove} className='card-img'/>
+                    <Card.Body>
+                      <Card.Title>GITS Glove V1</Card.Title>
+                      <Card.Text>
+                        First Golf ITS Glove
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+                {/* Card 3 */}
+                <Col>
+                  <Card>
+                    <Card.Img variant="top" src={Cap} className='card-img'/>
+                    <Card.Body>
+                      <Card.Title>GITS Cap V1</Card.Title>
+                      <Card.Text>
+                        First Golf ITS Cap
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
         </Container>
       </div>
 
@@ -98,52 +159,6 @@ function Home() {
             </Col>
             <Col className="collaboration-logo-container">
               <img src={KahfLogo} alt="Kahf" className="collaboration-logo" />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-
-      {/* Apparel Section */}
-      <div id="apparel" className="apparel-section">
-        <Container>
-          <h2>Apparel</h2>
-          <Row>
-            {/* Bagian teks di sebelah kiri */}
-            <Col md={6}>
-              <div className="apparel-text">
-                <h3>Judul Apparel</h3>
-                <p>Penjelasan mengenai apparel yang dimiliki. Deskripsi lebih lanjut tentang koleksi apparel.</p>
-              </div>
-            </Col>
-            {/* Bagian card apparel di sebelah kanan */}
-            <Col md={6}>
-              <Row>
-                {/* Card 1 */}
-                <Col>
-                  <Card>
-                    <Card.Img variant="top" src="path-to-image1.jpg" />
-                    <Card.Body>
-                      <Card.Title>Apparel 1</Card.Title>
-                      <Card.Text>
-                        Deskripsi singkat tentang apparel 1.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-                {/* Card 2 */}
-                <Col>
-                  <Card>
-                    <Card.Img variant="top" src="path-to-image2.jpg" />
-                    <Card.Body>
-                      <Card.Title>Apparel 2</Card.Title>
-                      <Card.Text>
-                        Deskripsi singkat tentang apparel 2.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-                {/* Tambahkan lebih banyak card di sini sesuai kebutuhan */}
-              </Row>
             </Col>
           </Row>
         </Container>
