@@ -1,20 +1,11 @@
 import React from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { NavbarComponent, Footer } from '../page-components/all-components';
 import { Link } from 'react-scroll';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import * as auth from '../../functions/auth';
+import Logo from '../../assets/logos/hero.svg'; // Import your SVG logo here
+import ArrowDown from '../../assets/design/arrowdown.svg'
 import './home.css';
-
-// Dummy data for apparel
-const apparelData = [
-  { id: 1, name: 'Apparel 1', image: 'path/to/image1.jpg' },
-  { id: 2, name: 'Apparel 2', image: 'path/to/image2.jpg' },
-  { id: 3, name: 'Apparel 3', image: 'path/to/image3.jpg' },
-  // Add more apparel data as needed
-];
 
 function Home() {
   const [isLoggedIn, setLoggedIn] = React.useState(localStorage.getItem('isLoggedIn'));
@@ -25,17 +16,34 @@ function Home() {
     auth.fetchUserProfile(setUserProfilePicture);
   }, []);
 
+  // Hero paralax
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const heroSection = document.querySelector('.custom-hero');
+      const img = document.querySelector('.custom-hero img');
+      const title = document.querySelector('.custom-hero h1');
+      const description = document.querySelector('.custom-hero p');
+      const button = document.querySelector('.custom-hero button');
+  
+      if (heroSection && img && title && description && button) {
+        const translate = scrollY / 4; 
+        img.style.transform = `translate(0, -${translate}px)`;
+        title.style.transform = `translate(0, -${translate}px)`;
+        description.style.transform = `translate(0, -${translate}px)`;
+        button.style.transform = `translate(0, -${translate}px)`;
+      }
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const handleLogout = () => {
     auth.logoutUser(setLoggedIn, setUserName);
-  };
-
-  // Slick slider settings
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 1,
   };
 
   return (
@@ -50,13 +58,25 @@ function Home() {
       {/* Hero Section */}
       <div className="custom-hero">
         <Container>
-          <h1>Welcome to My Website</h1>
-          <p>
-            Explore our amazing features and content. Sign in to get started!
-          </p>
-          <Link to="collaboration" smooth={true} duration={500}>
-            <Button variant="primary">Explore Collaboration</Button>
+          <Row>
+            <Col md={5} className='d-flex justify-content-center'>
+              <img src={Logo} alt="My Logo" className="img-fluid" />
+            </Col>
+            <Col md={7} className='d-flex align-items-center'>
+              <div>
+                <h1>Golf ITS</h1>
+                <p>Explore our amazing features and content. Sign in to get started!</p>
+                <Link to="collaboration" smooth={true} duration={500}>
+                  <Button variant="primary">Explore Collaboration</Button>
+                </Link>
+              </div>
+            </Col>
+          </Row>
+          {/* Arrow Link to Next Section */}
+          <Link to="collaboration" smooth={true} duration={700} className="arrow-link">
+            <img src={ArrowDown} alt="Arrow" className="arrowdown" />
           </Link>
+
         </Container>
       </div>
 
@@ -68,22 +88,6 @@ function Home() {
             Discover our partnerships with various organizations and individuals
             that make our platform special.
           </p>
-          {/* Add content for collaborations, such as logos, descriptions, etc. */}
-        </Container>
-      </div>
-
-      {/* Apparel Section */}
-      <div className="apparel-section">
-        <Container>
-          <h2>Explore Our Apparel</h2>
-          <Slider {...sliderSettings}>
-            {apparelData.map((apparel) => (
-              <div key={apparel.id} className="apparel-item">
-                <img src={apparel.image} alt={apparel.name} />
-                <p>{apparel.name}</p>
-              </div>
-            ))}
-          </Slider>
         </Container>
       </div>
 
