@@ -101,7 +101,24 @@
   padding: 20px;
   background-color: #ffffff;
   text-align: center;
-  }
+}
+
+.collaboration-logo-container-row {
+  justify-content: center;
+  align-items: center;
+}
+.collaboration-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%; 
+}
+
+.collaboration-logo {
+  max-width: 70%;
+  height: auto;
+}
   
 .collaboration-section h2 {
   font-size: 2rem;
