@@ -1,13 +1,3 @@
-// auth.js
-// 1. Fetch User
-// 2. Set Login Status
-// 3. Login User
-// 4. Logout User
-// 5. Fetch User Profile
-
-// 1. Fetch User
-// auth.js
-
 // 1. Fetch User
 export const fetchUserData = (token) => {
   const userType = localStorage.getItem('userType');
@@ -19,9 +9,7 @@ export const fetchUserData = (token) => {
     .then(response => {
       if (!response.ok) {
         if (response.status === 401) {
-          // Token tidak valid, lakukan logout
           logoutUser();
-          console.log('invalid')
         }
         throw new Error('Error fetching user data');
       }
@@ -115,8 +103,6 @@ export const fetchUserProfile = async (setUserProfile) => {
           Authorization: `Bearer ${authToken}`,
         },
       });
-
-      console.log(resp);
 
       if (!resp.ok) {
         if (resp.status === 401) {

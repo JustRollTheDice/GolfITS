@@ -27,23 +27,18 @@ export function NavbarComponent({ isLoggedIn, userProfilePicture, userName, hand
           )}
         </Nav>
         <Nav className="ms-2">
-          <Nav.Link as={Link} to="/member-list">Events</Nav.Link>
-          <Nav.Link as={Link} to="/member-list">News</Nav.Link>
-          <Nav.Link as={Link} to="/member-list">About Us</Nav.Link>
+          <Nav.Link as={Link} to="/event">Event</Nav.Link>
         </Nav>
         <Nav className="ms-2">
           {isLoginPage ? (
-            // Tidak tampilkan apapun di halaman login
             null
           ) : isLoggedIn ? (
-            // Tampilkan profil jika user sudah login di halaman lain
             <NavDropdown title={<><img src={userProfilePicture} alt="" className="user-profile-image me-2" />{userName}</>} id="basic-nav-dropdown" align="end">
               <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#" onClick={handleLogout}>Logout</NavDropdown.Item>
             </NavDropdown>
           ) : (
-            // Tampilkan tombol login jika user belum login di halaman lain
             <Nav.Item>
               <Button as={Link} to="/login" variant="outline-success">Login</Button>
             </Nav.Item>

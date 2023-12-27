@@ -14,6 +14,10 @@ import Teams from './collections/Teams'
 import Sessions from './collections/Sessions'
 import Staffimages from './collections/Staffimages'
 import Memberimages from './collections/Memberimages'
+import Apparel from './collections/Apparel'
+import Apparelimages from './collections/Apparelimages'
+import Event from './collections/Event'
+import Eventimages from './collections/Eventimages'
 
 export default buildConfig({
   admin: {
@@ -30,8 +34,12 @@ export default buildConfig({
     Staffs,
     Teams,
     Sessions,
+    Apparel,
     Staffimages,
     Memberimages,
+    Apparelimages,
+    Event,
+    Eventimages,
   ],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),

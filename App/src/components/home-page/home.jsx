@@ -9,13 +9,10 @@ import BdgLogo from '../../assets/logos/collab/bdg-logo.png';
 import BriLogo from '../../assets/logos/collab/bri-logo.png';
 import KahfLogo from '../../assets/logos/collab/kahf-logo.png';
 
-import Shirt from '../../assets/images/apparel/shirt.jpg'
-import Glove from '../../assets/images/apparel/glove.jpg'
-import Cap from '../../assets/images/apparel/cap.jpg'
-
 import './home.css';
 
 function Home() {
+  const [apparelData, setApparelData] = React.useState([]);
   const [isLoggedIn, setLoggedIn] = React.useState(localStorage.getItem('isLoggedIn'));
   const [userName, setUserName] = React.useState(localStorage.getItem('userName'));
   const [userProfilePicture, setUserProfilePicture] = React.useState('');
@@ -50,6 +47,25 @@ function Home() {
     };
   }, []);
 
+  React.useEffect(() => {
+    const fetchApparelData = async () => {
+      try {
+        const apparelResponse = await fetch('http://localhost:3000/api/apparel');
+        const apparelData = await apparelResponse.json();
+
+        if (apparelData.docs && Array.isArray(apparelData.docs)) {
+          setApparelData(apparelData.docs);
+        } else {
+          console.error('Fetched apparel data is not an array:', apparelData);
+        }
+      } catch (error) {
+        console.error('Error fetching apparel data:', error);
+      }
+    };
+
+    fetchApparelData();
+  }, []);
+
   const handleLogout = () => {
     auth.logoutUser(setLoggedIn, setUserName);
   };
@@ -80,14 +96,12 @@ function Home() {
               </div>
             </Col>
           </Row>
-          {/* Arrow Link to Next Section */}
           <Link to="apparel" smooth={true} duration={700} className="arrow-link">
             <img src={ArrowDown} alt="Arrow" className="arrowdown" />
           </Link>
         </Container>
       </div>
 
-      {/* Apparel Section */}
       <div id="apparel" className="apparel-section">
         <Container>
           <Row>
@@ -101,42 +115,23 @@ function Home() {
             </Col>
             <Col md={8}>
               <Row>
-                {/* Card 1 */}
-                <Col>
-                  <Card>
-                    <Card.Img variant="top" src={Shirt} className='card-img'/>
-                    <Card.Body>
-                      <Card.Title>GITS Shirt V1</Card.Title>
-                      <Card.Text>
-                        First Golf ITS Shirt
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-                {/* Card 2 */}
-                <Col>
-                  <Card>
-                    <Card.Img variant="top" src={Glove} className='card-img'/>
-                    <Card.Body>
-                      <Card.Title>GITS Glove V1</Card.Title>
-                      <Card.Text>
-                        First Golf ITS Glove
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-                {/* Card 3 */}
-                <Col>
-                  <Card>
-                    <Card.Img variant="top" src={Cap} className='card-img'/>
-                    <Card.Body>
-                      <Card.Title>GITS Cap V1</Card.Title>
-                      <Card.Text>
-                        First Golf ITS Cap
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
+                {/* Display apparel cards */}
+                {apparelData.map((item) => (
+                  <Col key={item.id}>
+                    <Card>
+                      <Card.Img
+                        variant="top"
+                        src={`http://localhost:3000${item.apparelImage.url}`}
+                        className='card-img'
+                      />
+                      <Card.Body>
+                        <Card.Title>{item.apparel}</Card.Title>
+                        <Card.Text>{item.description}</Card.Text>
+                        <Card.Text>Rp{item.price}</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ))}
               </Row>
             </Col>
           </Row>
@@ -148,8 +143,6 @@ function Home() {
         <Container>
           <h2>Our Partnership</h2>
           <p>Discover our partnerships with various organizations and individuals that make our platform special.</p>
-
-          {/* Menampilkan logo kolaborasi */}
           <Row className='collaboration-logo-container-row'>
             <Col className="collaboration-logo-container">
               <img src={BdgLogo} alt="Bukit Darmo Golf" className="collaboration-logo" />

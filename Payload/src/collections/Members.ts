@@ -1,5 +1,4 @@
 import { CollectionConfig } from 'payload/types';
-import Teams from './Teams';
 
 const Members: CollectionConfig = {
   slug: 'members',
@@ -36,7 +35,7 @@ const Members: CollectionConfig = {
       name: 'profilePicture',
       label: 'Profile Picture',
       type: 'upload',
-      relationTo: 'memberimages', // Sesuaikan dengan slug koleksi 'Media'
+      relationTo: 'memberimages', 
     },
     {
       name: 'team',
