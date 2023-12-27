@@ -12,16 +12,15 @@ function App() {
   const [isLoggedIn, setLoggedIn] = useState(localStorage.getItem('isLoggedIn'));
 
   const handleLogout = () => {
-    // Tambahkan logika logout Anda di sini
+    auth.logoutUser(setLoggedIn, setUserName);
   };
 
   return (
     <Router>
       <Routes>
-        {/* Gunakan prop index untuk menentukan rute beranda */}
-        <Route index element={<HomePage isLoggedIn={isLoggedIn} handleLogout={handleLogout} />} />
-        <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} />} />
-        <Route path="/home" element={<HomePage isLoggedIn={isLoggedIn} handleLogout={handleLogout} />} />
+        <Route index element={<HomePage/>} />
+        <Route path="/login" element={<LoginPage/>} />
+        <Route path="/home" element={<HomePage/>} />
         <Route path="/profile" element={<UserProfile />} /> 
         <Route path="/member-list" element={<MemberList />} /> 
         <Route path="/staff-list" element={<StaffList />} /> 

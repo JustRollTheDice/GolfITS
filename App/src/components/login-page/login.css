@@ -1,14 +1,12 @@
-/* login.css */
-
 .Login {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-image: url('../../assets/images/golfbg.png');
-  background-size: cover; /* Mengatur gambar agar menutupi seluruh elemen */
-  background-position: center; /* Menentukan posisi gambar latar belakang */
+  background-image: url('../../assets/images/golfbg2.png');
+  background-size: cover; 
+  background-position: center; 
 }
 
 .container.custom-login-form {
@@ -17,8 +15,8 @@
   padding: 40px;
   border: 1px solid #cccccc83;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.7); 
-  backdrop-filter: blur(4px); 
+  background-color: rgba(255, 255, 255, 0.4); 
+  backdrop-filter: blur(3px); 
   margin: 20px auto;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
@@ -37,11 +35,11 @@
   border-radius: 40px;
   width: 200px;
   margin-top: 20px;
-  background-color: #fff;
+  background-color: transparent;
   color: #28a745;
   border: 2px solid #28a745;
   font-size: 16px;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Menambahkan efek transisi */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
 }
 
 .custom-login-form form .btn-login:hover {

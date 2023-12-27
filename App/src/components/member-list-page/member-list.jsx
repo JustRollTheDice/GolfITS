@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { NavbarComponent, Footer} from '../page-components/all-components';
+import { NavbarComponent, Footer} from '../page-components/components';
 import * as auth from '../../functions/auth';
+import './member-list.css'
 
 function MemberList() {
   const [members, setMembers] = useState([]);

@@ -1,8 +1,7 @@
-// UserProfile.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import NavbarComponent from '../page-components/all-components';
+import NavbarComponent from '../page-components/components';
 import * as auth from '../../functions/auth';
 import './user-profile.css';
 
@@ -48,7 +47,6 @@ function UserProfile() {
                 </Button>
               </div>
               <p>Email: example@example.com</p>
-              {/* Add more user details as needed */}
             </div>
           </div>
         </div>

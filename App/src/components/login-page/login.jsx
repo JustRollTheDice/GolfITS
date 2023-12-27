@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Container } from 'react-bootstrap'; // Mengimpor Container dari React Bootstrap
+import { Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { NavbarComponent } from '../page-components/all-components';
+import { NavbarComponent } from '../page-components/components';
 import './login.css';
 import { checkLoggedInStatus, loginUser } from '../../functions/auth';
 
@@ -42,7 +42,7 @@ function Login() {
       <NavbarComponent isLoggedIn={isLoggedIn} userName={userName} />
       
       {/* Form */}
-      <Container className="custom-login-form"> {/* Menggunakan komponen Container dari React Bootstrap */}
+      <Container className="custom-login-form"> 
         <div className='text-center mb-4'>
           <h2>Login</h2>
         </div>

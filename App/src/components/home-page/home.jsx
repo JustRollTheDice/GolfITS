@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button, Card} from 'react-bootstrap';
-import { NavbarComponent, Footer } from '../page-components/all-components';
+import { NavbarComponent, Footer } from '../page-components/components';
 import { Link } from 'react-scroll';
 import * as auth from '../../functions/auth';
 import Logo from '../../assets/logos/hero.svg';
@@ -96,7 +96,7 @@ function Home() {
               <div className="apparel-text">
                 <h1 className='my-0 py-0'>Golf</h1>
                 <h1 className='my-0 py-0'>Apparel.</h1>
-                <p></p>
+                <p className=''>Checkout our latest apparel</p>
               </div>
             </Col>
             <Col md={8}>

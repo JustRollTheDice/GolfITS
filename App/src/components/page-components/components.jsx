@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../../../public/logo.svg';
+import Logo from '../../../public/logo.svg';
 import './components.css';
 
 export function NavbarComponent({ isLoggedIn, userProfilePicture, userName, handleLogout }) {
@@ -11,7 +11,7 @@ export function NavbarComponent({ isLoggedIn, userProfilePicture, userName, hand
   return (
     <Navbar expand="lg" className="d-flex align-items-center px-5" fixed="top">
       <Navbar.Brand as={Link} to="/home" className="d-flex align-items-center">
-        <img src={logo} alt="Golf ITS" width="45" height="45" className="d-inline-block align-text-center mx-2" />
+        <img src={Logo} alt="Golf ITS" width="45" height="45" className="d-inline-block align-text-center mx-2" />
         <span className='mt-1'>
           Golf ITS
         </span>
